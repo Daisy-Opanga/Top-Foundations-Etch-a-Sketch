@@ -1,21 +1,36 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 .container{
-    margin: 100px 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.grid-size-btn{
+    padding: 5px;
     background-color: rgb(197, 124, 124);
-    width: 600px;
-    height: 600px;
+    border: none;
+    border-radius: 5px; 
+    box-shadow: 2px 2px rgb(146, 80, 80);
+    font-weight: bold;
+}
+.grid-container{
+    margin: 30px;
+    background-color: rgb(197, 124, 124);
+    width: 550px;
+    height: 550px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    border: 2px solid rgb(146, 80, 80);
 }
 .grid-square{
     background-color: antiquewhite;
-    width: calc(100% / 16);
-    height: calc(100% / 16);
-    border: 0.1px solid black;
+    border: none;
+    transition: background-color 0.3s;
+    box-sizing: border-box;
 }

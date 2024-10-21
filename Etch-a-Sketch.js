@@ -1,13 +1,20 @@
-const container = document.querySelector(".container");
+const container = document.querySelector(".grid-container");
+const gridSizeBtn = document.querySelector(".grid-size-btn");
+let gridSize, gridSqrSize;
 
 function createGrid(){
-    let i;
-    for (i = 0; i < (16*16); i++){
+    container.innerHTML = "";
+    gridSqrSize = 550 / gridSize;
+    let i; 
+    for (i = 0; i < (gridSize * gridSize); i++){
         const gridSqr = document.createElement("div");
         gridSqr.classList.add("grid-square");
+        gridSqr.style.width = `${gridSqrSize}px`;
+        gridSqr.style.height = `${gridSqrSize}px`;
         container.appendChild(gridSqr);
         
     }
+    createHoverEffect();
 }
 
 function createHoverEffect() {
@@ -18,5 +25,16 @@ function createHoverEffect() {
     });
 }); 
 }
-createGrid();
-createHoverEffect();
+
+function getGridSize() {
+   gridSizeBtn.addEventListener("click", () =>{
+       gridSize = Number(prompt("Enter the grid size; a number from 1-100."));
+       if (gridSize < 1 || gridSize > 100 || isNaN(gridSize)) {
+         alert("Please enter a valid number between 1 and 100.");
+         return;
+       }
+       createGrid();
+   }); 
+}
+getGridSize();
+
