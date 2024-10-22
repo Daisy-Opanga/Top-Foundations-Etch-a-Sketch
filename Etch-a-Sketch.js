@@ -21,7 +21,7 @@ function createHoverEffect() {
     const gridSqrs = document.querySelectorAll(".grid-square");
     gridSqrs.forEach((gridSqr) => {
     gridSqr.addEventListener("mouseover",() =>{
-        gridSqr.style.backgroundColor = "rgb(197, 124, 124)";
+        gridSqr.style.backgroundColor = getRGBvalue();
     });
 }); 
 }
@@ -36,5 +36,18 @@ function getGridSize() {
        createGrid();
    }); 
 }
+
+function changeOpacity() {
+    
+}
+
+function getRGBvalue() {
+ let i, RGBval = [];
+ for (i= 0; i<3; i++) {
+   RGBval[i]= Math.floor(Math.random()*256); 
+ } 
+ return ` rgb(${RGBval.toString()})`;
+}
+
 getGridSize();
 
