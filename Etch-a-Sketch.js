@@ -16,16 +16,17 @@ function createGrid(){
     }
     createHoverEffect();
 }
-
 function createHoverEffect() {
     const gridSqrs = document.querySelectorAll(".grid-square");
     gridSqrs.forEach((gridSqr) => {
+    let sqrOpacity = 1;
     gridSqr.addEventListener("mouseover",() =>{
         gridSqr.style.backgroundColor = getRGBvalue();
+        sqrOpacity > 0 ? sqrOpacity -= 0.1 : sqrOpacity = 0;
+        gridSqr.style.opacity = `${sqrOpacity}`;
     });
 }); 
 }
-
 function getGridSize() {
    gridSizeBtn.addEventListener("click", () =>{
        gridSize = Number(prompt("Enter the grid size; a number from 1-100."));
@@ -36,11 +37,6 @@ function getGridSize() {
        createGrid();
    }); 
 }
-
-function changeOpacity() {
-    
-}
-
 function getRGBvalue() {
  let i, RGBval = [];
  for (i= 0; i<3; i++) {
@@ -48,6 +44,7 @@ function getRGBvalue() {
  } 
  return ` rgb(${RGBval.toString()})`;
 }
-
 getGridSize();
+
+
 

@@ -29,7 +29,6 @@
     border: 2px solid rgb(146, 80, 80);
 }
 .grid-square{
-    background-color: antiquewhite;
     border: none;
     transition: background-color 0.3s;
     box-sizing: border-box;
